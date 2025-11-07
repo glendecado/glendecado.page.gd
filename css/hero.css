@@ -1,0 +1,161 @@
+/* ============================= */
+/*          HERO SECTION         */
+/* ============================= */
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+  overflow: hidden;
+  padding: 0 2rem;
+  animation: hero-bg-glow 6s ease-in-out infinite alternate;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 60% 40%,
+    rgba(59, 130, 246, 0.15),
+    transparent 70%
+  );
+  z-index: 0;
+  animation: glow-pulse 5s ease-in-out infinite alternate;
+}
+
+/* ============================= */
+/*        HERO CONTENT BOX       */
+/* ============================= */
+.hero-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  padding: 2.5rem 3rem;
+  background: rgba(255, 255, 255, 0.26); /* slightly stronger glass effect */
+  backdrop-filter: blur(4px); /* more blur & vibrance */
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.2); /* subtle glass border */
+  box-shadow: 0 8px 60px rgba(0, 0, 0, 0.25); /* soft shadow for depth */
+  max-width: 1000px;
+  transition: all 0.4s ease;
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Optional hover for glass shine effect */
+.hero-content:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 100px rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid var(--accent-2);
+}
+
+/* ============================= */
+/*        IMAGE STYLING          */
+/* ============================= */
+.hero-image img {
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  animation: image-fade-in 1.5s ease forwards;
+}
+
+.hero-image img:hover {
+  transform: scale(1.06) rotate(2deg);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+/* ============================= */
+/*         TEXT STYLING          */
+/* ============================= */
+.hero-text {
+  text-align: left;
+  opacity: 0;
+  animation: text-fade-in 1.8s ease forwards;
+  animation-delay: 0.5s;
+}
+
+.hero-text h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.6rem;
+
+}
+
+.hero-text p {
+  font-size: 1.15rem;
+  opacity: 0.9;
+  margin-bottom: 1.75rem;
+  line-height: 1.6;
+}
+
+/* ============================= */
+/*       RESPONSIVE DESIGN       */
+/* ============================= */
+@media (max-width: 900px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  .hero-text {
+    text-align: center;
+  }
+
+  .hero-text h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-text p {
+    font-size: 1rem;
+  }
+
+  .hero-image img {
+    width: 160px;
+    height: 160px;
+  }
+}
+
+/* ============================= */
+/*          ANIMATIONS           */
+/* ============================= */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes glow-pulse {
+  0% { opacity: 0.15; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(1.05); }
+  100% { opacity: 0.15; transform: scale(1); }
+}
+
+@keyframes hero-bg-glow {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
+@keyframes image-fade-in {
+  0% { opacity: 0; transform: scale(0.9); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes text-fade-in {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}

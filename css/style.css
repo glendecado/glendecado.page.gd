@@ -1,0 +1,88 @@
+:root {
+  /* ========== BASE COLORS (SEO & ACCESSIBILITY FRIENDLY) ========== */
+  --bg-color: #f8fafc; /* neutral light background for contrast */
+  --text-color: #0f172a; /* deep navy for readability */
+  --accent-color: #2563eb; /* vivid blue (trust, tech) */
+  --accent-2: #0ea5e9; /* balanced cyan */
+  --card-bg: #ffffff; /* clean white sections */
+  --border-color: rgba(15, 23, 42, 0.08); /* soft neutral borders */
+
+  /* ========== INTERACTION & DEPTH ========== */
+  --hover: rgba(37, 99, 235, 0.08); /* gentle hover feedback */
+  --shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+  --radius: 14px;
+  --transition: all 0.3s ease;
+
+  /* ========== TEXT HIERARCHY ========== */
+  --heading-color: #0f172a;
+  --subtext-color: #475569;
+  --muted-color: #94a3b8;
+
+  /* ========== GRADIENT OPTION ========== */
+  --gradient: linear-gradient(90deg, #2563eb, #0ea5e9);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: linear-gradient(180deg, #f9fafb 0%, #eef2f7 100%);
+  color: var(--text-color);
+  min-height: 100vh;
+  letter-spacing: 0.2px;
+  line-height: 1.6;
+}
+
+/* ============================= */
+/*          LAYOUT               */
+/* ============================= */
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+/* ============================= */
+/*          TYPOGRAPHY           */
+/* ============================= */
+h1 {
+  font-size: 2.6rem;
+  font-weight: 700;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+}
+
+p {
+  color: var(--subtext-color);
+  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
+}
+
+
+/* ============================= */
+/*          BUTTON               */
+/* ============================= */
+.btn {
+  display: inline-block;
+  background: var(--accent-color);
+  color: #fff;
+  padding: 0.9rem 1.8rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.btn:hover {
+  background: var(--accent-2);
+  transform: translateY(-2px);
+}
+

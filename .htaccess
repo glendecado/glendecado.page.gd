@@ -1,0 +1,13 @@
+# Disable directory listing
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Redirect everything to index.php
+  RewriteCond %{REQUEST_URI} !^/index\.php$
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^.*$ index.min.php [L,QSA]
+</IfModule>
