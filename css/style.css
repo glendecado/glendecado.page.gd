@@ -31,7 +31,7 @@
 }
 
 body {
-  background: linear-gradient(180deg, #f9fafb 0%, #eef2f7 100%);
+  background: var(--bg-color);
   color: var(--text-color);
   min-height: 100vh;
   letter-spacing: 0.2px;
