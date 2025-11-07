@@ -21,4 +21,5 @@ jobs:
           local-dir: ./                        # root of your repo
           server-dir: /htdocs                   # InfinityFree usually uses /htdocs
           git-ftp-args: --insecure              # optional, if SSL fails
-          
+
+
