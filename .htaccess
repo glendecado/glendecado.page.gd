@@ -11,3 +11,9 @@ Options -Indexes
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteRule ^.*$ index.min.php [L,QSA]
 </IfModule>
+
+
+# Remove ?i=1 from URLs
+RewriteEngine On
+RewriteCond %{QUERY_STRING} ^i=1$
+RewriteRule ^(.*)$ /$1? [R=301,L]
