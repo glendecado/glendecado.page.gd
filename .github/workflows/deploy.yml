@@ -22,6 +22,6 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./
-          server-dir: /htdocs/   # <- must end with /
+          server-dir: /htdocs/
           log-level: verbose
-          security: insecure
+          security: loose    # ✅ use "loose" for InfinityFree
