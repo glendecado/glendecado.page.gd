@@ -1,0 +1,1 @@
+<section id="home" class="hero"><div class="overlay"></div><div class="hero-content"><div class="hero-image"><img src="https://glendecado.vercel.app/photoMe.png" alt="Glen Brian G. Decado"></div><div class="hero-text"><h1>Glen Brian G. Decado</h1><p>Full-Stack Web Developer From Philippines</p></div></div></section>

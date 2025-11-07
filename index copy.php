@@ -15,10 +15,7 @@ $image = "https://glendecado.page.gd/preview.jpg";
     <title><?= htmlspecialchars($title) ?></title>
     <meta name="description" content="<?= htmlspecialchars($description) ?>" />
     <link rel="icon" type="image/png" href="/favicon.png" />
-<!--     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/navbar.css">
-    <link rel="stylesheet" href="css/hero.css">
-    <link rel="stylesheet" href="css/loading.css"> -->
+
     <link rel="stylesheet" href="css/min/style.min.css">
 
 

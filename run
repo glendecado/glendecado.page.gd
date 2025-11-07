@@ -1,0 +1,52 @@
+<?php
+// ⚡ Configuration
+$baseDir = __DIR__;
+$folders = ['components', 'pages'];
+$minFolderName = 'min';
+
+// Function to recursively minify PHP/HTML files
+function minifyPhpFiles($dir, $baseDir, $minFolderName) {
+    $files = new RecursiveIteratorIterator(
+        new RecursiveDirectoryIterator($dir, RecursiveDirectoryIterator::SKIP_DOTS)
+    );
+
+    foreach ($files as $file) {
+        if ($file->getExtension() === 'php' && strpos($file->getPathname(), DIRECTORY_SEPARATOR.$minFolderName.DIRECTORY_SEPARATOR) === false) {
+            $relPath = str_replace($baseDir.DIRECTORY_SEPARATOR, '', $file->getPathname());
+            $outPath = $baseDir.DIRECTORY_SEPARATOR.$minFolderName.DIRECTORY_SEPARATOR.$relPath;
+            $outDir = dirname($outPath);
+            if (!is_dir($outDir)) mkdir($outDir, 0777, true);
+
+            // Run html-minifier-terser using shell
+            $cmd = "npx html-minifier-terser \"{$file->getPathname()}\" -o \"{$outPath}\" --collapse-whitespace --remove-comments --minify-css true --minify-js true";
+            echo "Minifying {$file->getPathname()} → {$outPath}\n";
+            shell_exec($cmd);
+        }
+    }
+}
+
+// Minify all components/pages
+foreach ($folders as $folder) {
+    minifyPhpFiles($baseDir.DIRECTORY_SEPARATOR.$folder, $baseDir, $minFolderName);
+}
+
+// Handle index.php
+$tempIndex = $baseDir.DIRECTORY_SEPARATOR.'index.temp.php';
+copy($baseDir.DIRECTORY_SEPARATOR.'index.php', $tempIndex);
+
+// Replace include paths
+$indexContent = file_get_contents($tempIndex);
+$indexContent = str_replace(
+    ["include 'components/", "include 'pages/"],
+    ["include 'components/min/", "include 'pages/min/"],
+    $indexContent
+);
+file_put_contents($tempIndex, $indexContent);
+
+// Minify index.temp.php → index.min.php
+shell_exec("npx html-minifier-terser \"{$tempIndex}\" -o \"{$baseDir}/index.min.php\" --collapse-whitespace --remove-comments --minify-css true --minify-js true");
+
+// Delete temp file
+unlink($tempIndex);
+
+echo "All files minified successfully!\n";
