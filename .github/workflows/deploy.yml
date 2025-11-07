@@ -22,5 +22,6 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./
-          server-dir: /htdocs
-          git-ftp-args: --verbose --insecure
+          server-dir: /htdocs/   # <- must end with /
+          log-level: verbose
+          security: insecure
