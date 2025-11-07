@@ -11,6 +11,12 @@ npx cleancss -o css/min/style.min.css css/*.css
 min php
 npx html-minifier-terser index.php -o index.min.php --collapse-whitespace --remove-comments --minify-css true --minify-js true
 
+
+
+========================================================================================================================================
+
+
+
 Get-ChildItem "C:\laragon\www\portfol\components" -Recurse -Filter "*.php" | Where-Object { $_.FullName -notmatch "\\min\\" } | ForEach-Object {
     $relPath = $_.FullName.Replace("C:\laragon\www\portfol\components\", "")
     $outPath = "C:\laragon\www\portfol\components\min\" + $relPath
@@ -40,3 +46,33 @@ npx html-minifier-terser index.temp.php -o index.min.php --collapse-whitespace -
 
 # Delete temp file
 Remove-Item index.temp.php
+
+
+
+name: Deploy to InfinityFree
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  ftp-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Show repo contents
+        run: ls -la
+
+      - name: FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./
+          server-dir: /htdocs/
+          log-level: verbose
+          security: strict    # ✅ use "loose" for InfinityFree
