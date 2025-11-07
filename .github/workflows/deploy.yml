@@ -3,7 +3,7 @@ name: Deploy to InfinityFree
 on:
   push:
     branches:
-      - master  # or master
+      - master
 
 jobs:
   ftp-deploy:
@@ -16,7 +16,7 @@ jobs:
         run: ls -la
 
       - name: FTP Deploy
-        uses: SamKirkland/FTP‑Deploy‑Action@v4.3.5
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
