@@ -24,4 +24,4 @@ jobs:
           local-dir: ./
           server-dir: /htdocs/
           log-level: verbose
-          security: loose    # ✅ use "loose" for InfinityFree
+          security: strict    # ✅ use "loose" for InfinityFree
