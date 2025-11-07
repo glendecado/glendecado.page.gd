@@ -15,13 +15,23 @@ jobs:
       - name: Show repo contents
         run: ls -la
 
+      # Step: Swap index.min.php to index.php for deployment
+      - name: Use minified index for deployment
+        run: |
+          if [ -f index.min.php ]; then
+            cp index.min.php index.php
+            echo "Swapped index.min.php → index.php"
+          else
+            echo "index.min.php not found, using original index.php"
+          fi
+
       - name: FTP Deploy
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./
-          server-dir: /htdocs/
+          local-dir: ./          # deploy current folder
+          server-dir: /htdocs/   # InfinityFree htdocs
           log-level: verbose
-          security: strict    # ✅ use "loose" for InfinityFree
+          security: strict        # use "loose" for InfinityFree SSL
