@@ -80,7 +80,7 @@ header("Expires: " . gmdate("D, d M Y H:i:s", time() + $cacheDuration) . " GMT")
         <div>
             <?php include 'pages/home.php'; ?>
 
-            <section id="skills" class="section">
+          <!--   <section id="skills" class="section">
                 <h1>Skills</h1>
             </section>
 
@@ -90,10 +90,10 @@ header("Expires: " . gmdate("D, d M Y H:i:s", time() + $cacheDuration) . " GMT")
 
             <section id="contact" class="section">
                 <h1>Contact</h1>
-            </section>
+            </section> -->
         </div>
     </main>
-<iframe src="https://ww4.site/bflix/" width="100%" height="600"></iframe>
+
     <!-- Scripts -->
     <script src="js/min/script.min.js"></script>
     <script src="js/three.r134.min.js"></script>
