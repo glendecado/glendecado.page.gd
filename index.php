@@ -25,16 +25,26 @@ header("Expires: " . gmdate("D, d M Y H:i:s", time() + $cacheDuration) . " GMT")
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Glen Brian G. Decado — Full-Stack Web Developer (Philippines)</title>
+    <meta name="description" content="Professional Full-Stack Web Developer from the Philippines. I build responsive, SEO-friendly websites and Progressive Web Apps (PWAs) that convert.">
+    <meta name="keywords" content="Glen Brian Decado, Full Stack Developer, Web Developer Philippines, Laravel Developer, PHP Developer, JavaScript Developer, SEO, PWA, Frontend, Backend">
+    <meta name="author" content="Glen Brian G. Decado">
+    <meta property="category" content="technology">
+    <meta property="channel" content="Websites">
 
-    <meta name="description" content="Meet Glen Brian Decado, a passionate Full-Stack Web Developer from the Philippines who builds fast, SEO-friendly websites and PWA's websites">
-    <meta name="keywords" content="Glen, Glen Decado, Glen Brian, Full Stack Developer, Web Developer Philippines, PHP Developer, Laravel Developer, JavaScript Developer, SEO Expert">
-
-    <!-- Open Graph (Social Sharing) -->
-    <meta property="og:title" content="Glen — Full-Stack Web Developer from the Philippines">
-    <meta property="og:description" content="Professional Full-Stack Developer specializing in SEO-friendly websites and web apps.">
-    <meta property="og:url" content="https://glendecado.page.gd">
+    <!-- ✅ Place the SEO & Social Meta Tags here -->
+    <meta property="og:title" content="Glen Brian Decado — Full-Stack Web Developer">
+    <meta property="og:description" content="Professional Full-Stack Web Developer from the Philippines. I build SEO-friendly websites and modern web apps.">
     <meta property="og:image" content="https://glendecado.page.gd/preview.jpg">
+    <meta property="og:url" content="https://glendecado.page.gd">
     <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Glen Brian Decado — Full-Stack Web Developer">
+    <meta name="twitter:description" content="Professional Full-Stack Web Developer from the Philippines. I build SEO-friendly websites and modern web apps.">
+    <meta name="twitter:image" content="https://glendecado.page.gd/preview.jpg">
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="stylesheet" href="css/min/style.min.css">
 
     <script type="application/ld+json">
         {
