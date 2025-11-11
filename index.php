@@ -1,18 +1,14 @@
 <?php
-// ✅ Enable Gzip Compression
+// ✅ Universal Gzip Setup — Compatible with All Browsers
 if (extension_loaded('zlib') && !ini_get('zlib.output_compression')) {
-    ob_start('ob_gzhandler');
+    if (isset($_SERVER['HTTP_ACCEPT_ENCODING']) && strpos($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip') !== false) {
+        ob_start('ob_gzhandler'); // Compress if supported
+    } else {
+        ob_start(); // Normal output if gzip not supported
+    }
 } else {
-    ob_start();
+    ob_start(); // Fallback if zlib not available
 }
-
-// ✨ SEO SETTINGS
-$title = "Glen Brian G. Decado — Full-Stack Web Developer (Philippines)";
-$description = "Professional Full-Stack Web Developer from the Philippines. I build responsive, SEO-friendly websites and Progressive Web Apps (PWAs) that convert.";
-$url = "https://glendecado.page.gd";
-$image = "https://glendecado.page.gd/preview.jpg";
-$keywords = "Glen Brian Decado, Full Stack Developer, Web Developer Philippines, Laravel Developer, PHP Developer, JavaScript Developer, SEO, PWA, Frontend, Backend";
-$author = "Glen Brian G. Decado";
 ?>
 <!doctype html>
 <html lang="en">
@@ -22,17 +18,19 @@ $author = "Glen Brian G. Decado";
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><?= htmlspecialchars($title) ?></title>
-    <meta name="description" content="<?= htmlspecialchars($description) ?>" />
-    <meta name="keywords" content="<?= htmlspecialchars($keywords) ?>" />
-    <meta name="author" content="<?= htmlspecialchars($author) ?>" />
-    <meta property="og:title" content="<?= htmlspecialchars($title) ?>" />
-    <meta property="og:description" content="<?= htmlspecialchars($description) ?>" />
-    <meta property="og:image" content="<?= htmlspecialchars($image) ?>" />
-    <meta property="og:url" content="<?= htmlspecialchars($url) ?>" />
-    <meta property="og:type" content="website" />
+    <title>Glen Brian G. Decado — Full-Stack Web Developer (Philippines)</title>
+    <meta name="description" content="Professional Full-Stack Web Developer from the Philippines. I build responsive, SEO-friendly websites and Progressive Web Apps (PWAs) that convert.">
+    <meta name="keywords" content="Glen Brian Decado, Full Stack Developer, Web Developer Philippines, Laravel Developer, PHP Developer, JavaScript Developer, SEO, PWA, Frontend, Backend">
+    <meta name="author" content="Glen Brian G. Decado">
 
-    <link rel="icon" type="image/png" href="/favicon.png" />
+    <!-- Open Graph / Social Preview -->
+    <meta property="og:title" content="Glen Brian G. Decado — Full-Stack Web Developer (Philippines)">
+    <meta property="og:description" content="Professional Full-Stack Web Developer from the Philippines. I build responsive, SEO-friendly websites and Progressive Web Apps (PWAs) that convert.">
+    <meta property="og:image" content="https://glendecado.page.gd/preview.jpg">
+    <meta property="og:url" content="https://glendecado.page.gd">
+    <meta property="og:type" content="website">
+
+    <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="stylesheet" href="css/min/style.min.css">
 </head>
 
@@ -71,6 +69,6 @@ $author = "Glen Brian G. Decado";
 </html>
 
 <?php
-// ✅ Send compressed output
+// ✅ Flush output (gzip or normal)
 ob_end_flush();
 ?>
