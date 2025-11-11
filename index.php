@@ -80,7 +80,7 @@ header("Expires: " . gmdate("D, d M Y H:i:s", time() + $cacheDuration) . " GMT")
         <div>
             <?php include 'pages/home.php'; ?>
 
-          <!--   <section id="skills" class="section">
+            <!--   <section id="skills" class="section">
                 <h1>Skills</h1>
             </section>
 
@@ -93,6 +93,15 @@ header("Expires: " . gmdate("D, d M Y H:i:s", time() + $cacheDuration) . " GMT")
             </section> -->
         </div>
     </main>
+
+
+    <section id="intro-video" class="section" style="text-align:center; padding:2rem 0;">
+        <video controls autoplay muted loop playsinline width="800" style="max-width:100%; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,0.3);">
+            <source src="0717(2).mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </section>
+
 
     <!-- Scripts -->
     <script src="js/min/script.min.js"></script>
