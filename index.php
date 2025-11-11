@@ -42,7 +42,7 @@ header("Expires: " . gmdate("D, d M Y H:i:s", time() + $cacheDuration) . " GMT")
     <meta name="twitter:title" content="Glen Brian Decado — Full-Stack Web Developer">
     <meta name="twitter:description" content="Professional Full-Stack Web Developer from the Philippines. I build SEO-friendly websites and modern web apps.">
     <meta name="twitter:image" content="https://glendecado.page.gd/preview.jpg">
-
+    <meta name="robots" content="index, follow">
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="stylesheet" href="css/min/style.min.css">
 
