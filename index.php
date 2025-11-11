@@ -45,7 +45,7 @@ header("Expires: " . gmdate("D, d M Y H:i:s", time() + $cacheDuration) . " GMT")
     <meta name="robots" content="index, follow">
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="stylesheet" href="css/min/style.min.css">
-
+    <title>Glen Brian G. Decado</title>
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
