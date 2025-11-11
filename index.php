@@ -9,6 +9,12 @@ if (extension_loaded('zlib') && !ini_get('zlib.output_compression')) {
 } else {
     ob_start(); // Fallback if zlib not available
 }
+
+// ✅ Cache Control — 30 days
+$cacheDuration = 2592000; // 30 days in seconds
+header("Cache-Control: public, max-age=$cacheDuration, immutable");
+header("Pragma: public");
+header("Expires: " . gmdate("D, d M Y H:i:s", time() + $cacheDuration) . " GMT");
 ?>
 <!doctype html>
 <html lang="en">
@@ -19,16 +25,36 @@ if (extension_loaded('zlib') && !ini_get('zlib.output_compression')) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Glen Brian G. Decado — Full-Stack Web Developer (Philippines)</title>
-    <meta name="description" content="Professional Full-Stack Web Developer from the Philippines. I build responsive, SEO-friendly websites and Progressive Web Apps (PWAs) that convert.">
-    <meta name="keywords" content="Glen Brian Decado, Full Stack Developer, Web Developer Philippines, Laravel Developer, PHP Developer, JavaScript Developer, SEO, PWA, Frontend, Backend">
-    <meta name="author" content="Glen Brian G. Decado">
 
-    <!-- Open Graph / Social Preview -->
-    <meta property="og:title" content="Glen Brian G. Decado — Full-Stack Web Developer (Philippines)">
-    <meta property="og:description" content="Professional Full-Stack Web Developer from the Philippines. I build responsive, SEO-friendly websites and Progressive Web Apps (PWAs) that convert.">
-    <meta property="og:image" content="https://glendecado.page.gd/preview.jpg">
+    <meta name="description" content="Meet Glen Brian Decado, a passionate Full-Stack Web Developer from the Philippines who builds fast, SEO-friendly websites and PWA's websites">
+    <meta name="keywords" content="Glen, Glen Decado, Glen Brian, Full Stack Developer, Web Developer Philippines, PHP Developer, Laravel Developer, JavaScript Developer, SEO Expert">
+
+    <!-- Open Graph (Social Sharing) -->
+    <meta property="og:title" content="Glen — Full-Stack Web Developer from the Philippines">
+    <meta property="og:description" content="Professional Full-Stack Developer specializing in SEO-friendly websites and web apps.">
     <meta property="og:url" content="https://glendecado.page.gd">
+    <meta property="og:image" content="https://glendecado.page.gd/preview.jpg">
     <meta property="og:type" content="website">
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Glen Brian Decado",
+            "alternateName": "Glen Decado",
+            "url": "https://glendecado.page.gd",
+            "jobTitle": "Full-Stack Web Developer",
+            "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "Philippines"
+            },
+            "sameAs": [
+                "https://facebook.com/glendecado",
+                "https://github.com/glendecado",
+                "https://linkedin.com/in/glendecado"
+            ]
+        }
+    </script>
 
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="stylesheet" href="css/min/style.min.css">

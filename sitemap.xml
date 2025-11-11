@@ -3,14 +3,16 @@
   <url>
     <loc>https://glendecado.page.gd/</loc>
     <lastmod>2025-11-07</lastmod>
+    <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://glendecado.page.gd/#skills</loc>
+    <loc>https://glendecado.page.gd/pages/home.php</loc>
+    <lastmod>2025-11-07</lastmod>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://glendecado.page.gd/#certificates</loc>
-  </url>
-    <url>
-    <loc>https://glendecado.page.gd/#contact</loc>
+    <loc>https://glendecado.page.gd/components/nav.php</loc>
+    <lastmod>2025-11-07</lastmod>
+    <priority>0.5</priority>
   </url>
 </urlset>
