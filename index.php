@@ -97,11 +97,11 @@ header("Expires: " . gmdate("D, d M Y H:i:s", time() + $cacheDuration) . " GMT")
 
 
     <!-- Scripts -->
-    <script src="js/min/script.min.js"></script>
-    <script src="js/three.r134.min.js"></script>
-    <script src="js/vanta.net.min.js"></script>
-    <script src="js/min/vanta.min.js"></script>
-    <script src="js/min/loader.min.js"></script>
+    <script src="js/min/script.min.js" defer></script>
+    <script src="js/three.r134.min.js" defer></script>
+    <script src="js/vanta.net.min.js" defer></script>
+    <script src="js/min/vanta.min.js" defer></script>
+    <script src="js/min/loader.min.js" defer></script>
 </body>
 
 </html>
