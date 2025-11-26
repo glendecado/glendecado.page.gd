@@ -31,7 +31,7 @@ header("Expires: " . gmdate("D, d M Y H:i:s", time() + $cacheDuration) . " GMT")
                 "https://github.com/glendecado",
                 "https://linkedin.com/in/glendecado"
             ]
-        }</script><link rel="icon" type="image/png" href="/favicon.png"><link rel="stylesheet" href="css/min/style.min.css"></head><body> <?php include 'components/min/loading.php'; ?> <header> <?php include 'components/min/nav.php'; ?> </header><main><div> <?php include 'pages/min/home.php'; ?> </div></main><script src="js/min/script.min.js" defer="defer"></script><script src="js/three.r134.min.js" defer="defer"></script><script src="js/vanta.net.min.js" defer="defer"></script><script src="js/min/vanta.min.js" defer="defer"></script><script src="js/min/loader.min.js" defer="defer"></script></body></html> <?php
+        }</script><link rel="icon" type="image/png" href="/favicon.png"><link rel="stylesheet" href="css/min/style.min.css"></head><body> <?php include 'components/min/loading.php'; ?> <header> <?php include 'components/min/nav.php'; ?> </header><main><div> <?php include 'pages/min/home.php'; ?> </div></main><script src="js/min/script.min.js" defer></script><script src="js/three.r134.min.js" defer></script><script src="js/vanta.net.min.js" defer></script><script src="js/min/vanta.min.js" defer></script><script src="js/min/loader.min.js" defer></script></body></html> <?php
 // ✅ Flush output (gzip or normal)
 ob_end_flush();
 ?>
